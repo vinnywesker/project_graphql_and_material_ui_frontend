@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import ShowCards from './views/showCards/index';
+import ThemeProvider from './services/themeContext/index';
+import ContextEmployeeProvider from './services/employeesContext/index';
+import ApolloProvider from './services/graphql/index';
+import ContextSelectedItemsProvider from './services/selectedCardsContext/index';
+
+const App = () => {
+
+    return (
+        <ThemeProvider>
+            <ApolloProvider>
+                <ContextEmployeeProvider>
+                    <ContextSelectedItemsProvider>
+                        <CssBaseline />
+                        <ShowCards />
+                    </ContextSelectedItemsProvider>
+                </ContextEmployeeProvider>
+            </ApolloProvider>
+        </ThemeProvider >
+    )
 }
 
 export default App;
