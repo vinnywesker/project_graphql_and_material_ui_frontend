@@ -47,7 +47,7 @@ const CardEmployee = ({ name, salary, position, _id }: Props) => {
         if (!selectedItems) setChecked(false);
     }, [selectedItems])
 
-    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    const handleClick = () => {
         const items = { _id, name, position };
 
         if (checked)
@@ -60,8 +60,6 @@ const CardEmployee = ({ name, salary, position, _id }: Props) => {
 
         setChecked(!checked);
     }
-
-    console.log(selectedItems);
 
     return (
         <>
